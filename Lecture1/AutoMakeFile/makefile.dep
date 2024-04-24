@@ -1,0 +1,3 @@
+f1.o: f1.c tools1.h tools.h
+f2.o: f2.c tools2.h tools.h
+f3.o: f3.c tools3.h tools.h
