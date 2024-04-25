@@ -1,8 +1,8 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "IntArray.h"
-/*test the IntArray functions*/
+/*This file is used to test the IntArray functions*/
 
 
 //todo: add time check for different sizes of array
@@ -10,8 +10,17 @@
 int main(int nWords, char *words[]) {
     // if the input received is -s 29 then we will create a random list of array
     //else code works as normal
-    if(!strcpy(words[1],"-s"))
+    if(!strcmp(words[1],"-s"))
     {
+        //check if a number is passed as an argument
+        for(int i=0;i<strlen(words[2]);i++)
+        {
+            if(words[2][i]<'0' || words[2][i]>'9')
+            {
+                printf("Invalid input\n");
+                return 1;
+            }
+        }
         int size=atoi(words[2]);
         IntArray array = createRandomArray(size);
         if(!array) {

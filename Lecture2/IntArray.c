@@ -3,29 +3,36 @@
 #include <stdio.h>
 #include <time.h>
 
-/**/
+// Create an array of integers of the given size
 IntArray createArray(int size) {
+    // Allocate memory for the array
     IntArray array= (IntArray)malloc(size * sizeof(int));
+    // Check if memory allocation was successful
     if(!array) {
         printf("Memory allocation failed\n");
         return NULL;
     }
+    // Initialize the array elements to 0
     for(int i=0; i<size; i++) {
         array[i] = 0;
     }
     return array;
 }
 
-
+// display the elements of the array
 void displayArray(IntArray array, int size) {
+    // Display the elements of the array
     for(int i=0; i<size; i++) {
         printf("%d ", array[i]);
     }
     printf("\n");
 }
+// destroy the array
 void destroyArray(IntArray * arr)
 {
+    //free the memory allocated to the array
     free(*arr);
+    //we do this to avoid dangling pointer
     *arr=NULL;
 }
 /*bubble sort*/
